@@ -57,6 +57,7 @@ const BILLING_SETTINGS = {
   // interval: BillingInterval.OneTime,
 };
 let jsonData = {};
+let lastUpdate = 0;
 // This sets up the mandatory GDPR webhooks. You’ll need to fill in the endpoint
 // in the “GDPR mandatory webhooks” section in the “App setup” tab, and customize
 // the code when you store customer data.
@@ -116,9 +117,9 @@ export async function createServer(
     const blogs = await client.get({
       path: 'blogs',
     });
-    jsonData = {accessToken: session.accessToken, shop: session.shop, blogId: blogs.body.blogs[0]['id'], lastUpdate: lastUpdate};
-    let newTimestamp = articleCreator(jsonData, jsonData.lastUpdate);
-    jsonData.lastUpdate = newTimestamp;
+    jsonData = {accessToken: session.accessToken, shop: session.shop, blogId: blogs.body.blogs[0]['id']};
+    let newTimestamp = articleCreator(jsonData, lastUpdate);
+    lastUpdate = newTimestamp;
     res.status(200).send();
   });
 
