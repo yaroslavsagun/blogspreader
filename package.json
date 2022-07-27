@@ -16,7 +16,8 @@
     "@shopify/app": "3.3.3",
     "@shopify/cli": "3.3.3",
     "node-cron": "^3.0.1",
-    "node-fetch": "^3.2.9"
+    "node-fetch": "^3.2.9",
+    "fs": "0.0.1-security"
   },
   "author": "yaroslavsagun"
 }
