@@ -25,6 +25,6 @@ export default async function articleCreator() {
       })
     }
   })
-  fs.writeFile('../settings.json', JSON.stringify({"accessToken": settings.accessToken, "shop": settings.shop, "blogId": settings.blogId, "lastUpdate": parseInt(Date.now()/1000)}), () => {});
+  fs.writeFileSync('../settings.json', JSON.stringify({"accessToken": settings.accessToken, "shop": settings.shop, "blogId": settings.blogId, "lastUpdate": parseInt(Date.now()/1000)}), () => {});
   
 }
