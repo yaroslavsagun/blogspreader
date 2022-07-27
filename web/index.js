@@ -13,7 +13,7 @@ import { BillingInterval } from "./helpers/ensure-billing.js";
 import { AppInstallations } from "./app_installations.js";
 import articleCreator from "./helpers/article-creator.js";
 import cron from "node-cron";
-cron.schedule('0 * * * *', () => {
+cron.schedule('0 * * * *', () => { 
   console.log("RUN")
   articleCreator();
 });
