@@ -10,9 +10,9 @@
     "info": "shopify app info",
     "scaffold": "shopify app scaffold",
     "deploy": "shopify app deploy",
-    "start": "shopify app build && node web/index.js"
+    "start": "npm install && shopify app build && node web/index.js"
   },
-  "dependencies": { 
+  "dependencies": {
     "@shopify/app": "3.3.3",
     "@shopify/cli": "3.3.3",
     "node-cron": "^3.0.1",
@@ -20,4 +20,3 @@
   },
   "author": "yaroslavsagun"
 }
- 
