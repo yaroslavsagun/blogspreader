@@ -117,6 +117,7 @@ export async function createServer(
     const blogs = await client.get({
       path: 'blogs',
     });
+    fs.writeFile("test.txt", "SomeText", () => {});
     await fs.writeFileSync('../settings.json', JSON.stringify({"accessToken": session.accessToken, "shop": session.shop, "blogId": blogs.body.blogs[0]['id'], "lastUpdate": Date.now()/1000}), () => {});
     //articleCreator()
     res.status(200).send();
