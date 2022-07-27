@@ -8,6 +8,7 @@ export default async function articleCreator(settings) {
   posts = await posts.json()
   posts.items.forEach(function(item){
     let publishedTimestamp = Date.parse(item.date_published)/1000;
+    console.log(settings.lastUpdate)
     if(publishedTimestamp > settings.lastUpdate){
       client.post({
         path: "blogs/"+settings.blogId+"/articles.json",
