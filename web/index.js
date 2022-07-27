@@ -158,7 +158,7 @@ export async function createServer(
 
     if (shop && !appInstalled) {
       res.redirect(`/api/auth?shop=${shop}`);
-    } else {
+    } else { 
       // res.set('X-Shopify-App-Nothing-To-See-Here', '1');
       const fs = await import("fs");
       const fallbackFile = join(
