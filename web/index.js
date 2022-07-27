@@ -117,7 +117,9 @@ export async function createServer(
       path: 'blogs',
     });
     
-    jsonData = {accessToken: session.accessToken, shop: session.shop, blogId: blogs.body.blogs[0]['id'], lastUpdate: Date.now()/1000};
+    let lastUpdate = await Date.now()/1000;
+    console.log(lastUpdate)
+    jsonData = {accessToken: session.accessToken, shop: session.shop, blogId: blogs.body.blogs[0]['id'], lastUpdate: lastUpdate};
     let newTimestamp = articleCreator(jsonData);
     jsonData.lastUpdate = newTimestamp;
     res.status(200).send();
