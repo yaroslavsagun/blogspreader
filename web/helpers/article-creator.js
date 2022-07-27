@@ -1,9 +1,8 @@
 import { Shopify, DataType } from "@shopify/shopify-api";
-import settings from '../../settings.json' assert {type: 'json'};
 import fetch from "node-fetch";
 import fs from "fs";
 
-export default async function articleCreator() {
+export default async function articleCreator(settings) {
   const client = new Shopify.Clients.Rest(settings.shop, settings.accessToken);
   let posts = await fetch("https://blogpost-spreader.sustentabledigital.com/feed/json");
   posts = await posts.json()
@@ -25,6 +24,6 @@ export default async function articleCreator() {
       })
     }
   })
-  fs.writeFileSync('../settings.json', JSON.stringify({"accessToken": settings.accessToken, "shop": settings.shop, "blogId": settings.blogId, "lastUpdate": parseInt(Date.now()/1000)}), () => {});
+  return parseInt(Date.now()/1000);
   
 }

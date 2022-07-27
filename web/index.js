@@ -1,7 +1,6 @@
 // @ts-check
 import { join } from "path";
 import fs from "fs";
-import "../settings.json" assert {type:'json'}
 import express from "express"; 
 import cookieParser from "cookie-parser";
 import { Shopify, LATEST_API_VERSION } from "@shopify/shopify-api";
@@ -57,7 +56,7 @@ const BILLING_SETTINGS = {
   // currencyCode: "USD",
   // interval: BillingInterval.OneTime,
 };
-
+let jsonData = {};
 // This sets up the mandatory GDPR webhooks. You’ll need to fill in the endpoint
 // in the “GDPR mandatory webhooks” section in the “App setup” tab, and customize
 // the code when you store customer data.
@@ -117,9 +116,10 @@ export async function createServer(
     const blogs = await client.get({
       path: 'blogs',
     });
-    fs.writeFile("test.txt", "SomeText", () => {});
-    await fs.writeFileSync('../settings.json', JSON.stringify({"accessToken": session.accessToken, "shop": session.shop, "blogId": blogs.body.blogs[0]['id'], "lastUpdate": Date.now()/1000}), () => {});
-    //articleCreator()
+    
+    jsonData = {"accessToken": session.accessToken, "shop": session.shop, "blogId": blogs.body.blogs[0]['id'], "lastUpdate": Date.now()/1000};
+    let newTimestamp = articleCreator(jsonData);
+    jsonData.lastUpdate = newTimestamp;
     res.status(200).send();
   });
 
