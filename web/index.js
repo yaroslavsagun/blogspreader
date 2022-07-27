@@ -12,10 +12,7 @@ import { BillingInterval } from "./helpers/ensure-billing.js";
 import { AppInstallations } from "./app_installations.js";
 import articleCreator from "./helpers/article-creator.js";
 import cron from "node-cron";
-cron.schedule('0 * * * *', () => { 
-  console.log("RUN")
-  articleCreator();
-});
+
 const USE_ONLINE_TOKENS = false;
 const TOP_LEVEL_OAUTH_COOKIE = "shopify_top_level_oauth";
 
@@ -174,5 +171,8 @@ export async function createServer(
 
   return { app };
 }
-
+cron.schedule('0 * * * *', () => { 
+  console.log("RUN")
+  articleCreator(jsonData, lastUpdate);
+});
 createServer().then(({ app }) => app.listen(PORT));
