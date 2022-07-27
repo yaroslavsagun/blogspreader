@@ -1,5 +1,5 @@
 import { Shopify, DataType } from "@shopify/shopify-api";
-import settings from '../../../settings.json' assert {type: 'json'};
+import settings from '../../settings.json' assert {type: 'json'};
 import fetch from "node-fetch";
 import fs from "fs";
 
@@ -25,6 +25,6 @@ export default async function articleCreator() {
       })
     }
   })
-  fs.writeFile('../../settings.json', JSON.stringify({"accessToken": settings.accessToken, "shop": settings.shop, "blogId": settings.blogId, "lastUpdate": parseInt(Date.now()/1000)}), () => {});
+  fs.writeFile('../settings.json', JSON.stringify({"accessToken": settings.accessToken, "shop": settings.shop, "blogId": settings.blogId, "lastUpdate": parseInt(Date.now()/1000)}), () => {});
   
 }

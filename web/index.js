@@ -1,7 +1,7 @@
 // @ts-check
 import { join } from "path";
 import fs from "fs";
-import "../../settings.json" assert {type:'json'}
+import "../settings.json" assert {type:'json'}
 import express from "express"; 
 import cookieParser from "cookie-parser";
 import { Shopify, LATEST_API_VERSION } from "@shopify/shopify-api";
@@ -118,7 +118,7 @@ export async function createServer(
       path: 'blogs',
     });
     
-    fs.writeFile('../../settings.json', JSON.stringify({"accessToken": session.accessToken, "shop": session.shop, "blogId": blogs.body.blogs[0]['id'], "lastUpdate": Date.now()/1000}), () => {});
+    fs.writeFile('../settings.json', JSON.stringify({"accessToken": session.accessToken, "shop": session.shop, "blogId": blogs.body.blogs[0]['id'], "lastUpdate": Date.now()/1000}), () => {});
     articleCreator()
     res.status(200).send();
   });
