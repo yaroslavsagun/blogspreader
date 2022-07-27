@@ -161,13 +161,13 @@ export async function createServer(
     } else {
       // res.set('X-Shopify-App-Nothing-To-See-Here', '1');
       const fs = await import("fs");
+      console.log(PROD_INDEX_PATH)
       const fallbackFile = join(
         isProd ? PROD_INDEX_PATH : DEV_INDEX_PATH,
         "index.html"
       );
       res
         .status(200)
-        .set("Content-Type", "text/html")
         .send(fs.readFileSync(fallbackFile));
     }
   });
