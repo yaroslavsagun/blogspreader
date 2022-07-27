@@ -10,7 +10,7 @@
     "info": "shopify app info",
     "scaffold": "shopify app scaffold",
     "deploy": "shopify app deploy",
-    "start": "shopify app build && cd web && node index.js"
+    "start": "npm install && cd web && npm install && cd .. && shopify app build && cd web && node index.js"
   },
   "dependencies": {
     "@shopify/app": "3.3.3",
