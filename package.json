@@ -12,7 +12,7 @@
     "deploy": "shopify app deploy",
     "start": "shopify app build && node web/index.js"
   },
-  "dependencies": {
+  "dependencies": { 
     "@shopify/app": "3.3.3",
     "@shopify/cli": "3.3.3",
     "node-cron": "^3.0.1",
