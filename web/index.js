@@ -120,7 +120,7 @@ export async function createServer(
     let lastUpdate = await Date.now();
     lastUpdate = lastUpdate/1000;
     jsonData = {accessToken: session.accessToken, shop: session.shop, blogId: blogs.body.blogs[0]['id'], lastUpdate: lastUpdate};
-    let newTimestamp = articleCreator(jsonData);
+    let newTimestamp = articleCreator(jsonData, lastUpdate);
     jsonData.lastUpdate = newTimestamp;
     res.status(200).send();
   });
