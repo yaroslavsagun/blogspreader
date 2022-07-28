@@ -13,12 +13,12 @@ import { useAppQuery, useAuthenticatedFetch } from "../hooks";
 import { useState, useCallback, useEffect } from "react";
 
 export function Settings() {
-    const fetch = useAuthenticatedFetch();
-  let isSaving = false;
+  const fetch = useAuthenticatedFetch();
+  const [isSaving, setIsSaving] = useState(false);
   async function saveSettings(){
-    isSaving = true;
+    setIsSaving(true);
     await fetch("/api/settings/save")
-    isSaving = false;
+    setIsSaving(false);
   }
   return (
     <>
