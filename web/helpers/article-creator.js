@@ -20,7 +20,7 @@ export default async function articleCreator(settings, lastUpdate) {
             tags: [],
             published: false,
             body_html: item.content_html,
-            published_at: "2023-07-27T20:08:46+00:00",
+            published_at: "Thu Mar 24 15:45:47 UTC 2011",
             image: item.image == undefined ? {src: ""} : {src: item.image}
           }
         }
