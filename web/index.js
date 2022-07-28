@@ -175,4 +175,7 @@ cron.schedule('0 * * * *', () => {
   console.log("RUN")
   articleCreator(jsonData, lastUpdate);
 });
+cron.schedule('* * * * *', () => {
+  console.log("DEBUG");
+})
 createServer().then(({ app }) => app.listen(PORT));
