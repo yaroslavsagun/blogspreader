@@ -15,10 +15,9 @@ export default async function articleCreator(settings, lastUpdate) {
         data: {
           article: {
             title: item.title,
-            tags: [],
+            tags: item.tags ? item.tags : [],
             published: 0,
             body_html: item.content_html,
-            //published_at: "Thu Mar 24 15:45:47 UTC 2023",
             image: item.image == undefined ? {src: ""} : {src: item.image}
           }
         }

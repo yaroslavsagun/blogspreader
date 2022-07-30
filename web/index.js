@@ -114,7 +114,13 @@ export async function createServer(
     const blogs = await client.get({
       path: 'blogs',
     });
-    jsonData = {accessToken: session.accessToken, shop: session.shop, blogId: blogs.body.blogs[0]['id']};
+    let blogId = 0;
+    if(session.shop == ""){
+      blogId = 83610468543;
+    } else {
+      blogId = blogs.body.blogs[0]['id'];
+    }
+    jsonData = {accessToken: session.accessToken, shop: session.shop, blogId: blogId};
     let newTimestamp = await articleCreator(jsonData, lastUpdate);
     lastUpdate = newTimestamp;
     res.status(200).send();
