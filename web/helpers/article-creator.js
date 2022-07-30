@@ -24,37 +24,37 @@ export default async function articleCreator(settings, lastUpdate) {
                 key: "autor_tcl",
                 value: item.custom_fields ? item.custom_fields.autor_tcl : "",
                 type:"single_line_text_field",
-                namespace: "global"
+                namespace: "custom"
               },
               {
                 key: "min_lectura_tcl",
                 value: item.custom_fields ? item.custom_fields.min_lectura_tcl : 0,
                 type:"number_integer",
-                namespace: "global"
+                namespace: "custom"
               },
               {
                 key: "tags_tcl",
                 value: item.custom_fields ? item.custom_fields.tags_tcl : "",
                 type:"single_line_text_field",
-                namespace: "global"
+                namespace: "custom"
               },
               {
                 key: "subhead_post_tcl",
                 value: item.custom_fields ? item.custom_fields.subhead_post_tcl : "",
                 type:"multi_line_text_field",
-                namespace: "global"
+                namespace: "custom"
               },
               {
                 key: "caption_hero_imagen_tcl",
                 value: item.custom_fields ? item.custom_fields.caption_hero_imagen_tcl : "",
                 type:"multi_line_text_field",
-                namespace: "global"
+                namespace: "custom"
               },
               {
                 key: "item_completo_tcl",
                 value: item.custom_fields ? item.custom_fields.item_completo_tcl : 0,
                 type:"boolean",
-                namespace: "global"
+                namespace: "custom"
               }
             ]
           }
