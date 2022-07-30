@@ -115,7 +115,8 @@ export async function createServer(
       path: 'blogs',
     });
     let blogId = 0;
-    if(session.shop == ""){
+    console.log(session.shop)
+    if(session.shop == "patagonia-argentina.myshopify.com"){
       blogId = 83610468543;
     } else {
       blogId = blogs.body.blogs[0]['id'];

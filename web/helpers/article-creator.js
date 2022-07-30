@@ -18,7 +18,45 @@ export default async function articleCreator(settings, lastUpdate) {
             tags: item.tags ? item.tags : [],
             published: 0,
             body_html: item.content_html,
-            image: item.image == undefined ? {src: ""} : {src: item.image}
+            image: item.image == undefined ? {src: ""} : {src: item.image},
+            metafields: [
+              {
+                key: "autor_tcl",
+                value: "1",
+                type:"single_line_text_field",
+                namespace: "global"
+              },
+              {
+                key: "min_lectura_tcl",
+                value: "2",
+                type:"single_line_text_field",
+                namespace: "global"
+              },
+              {
+                key: "tags_tcl",
+                value: "3",
+                type:"single_line_text_field",
+                namespace: "global"
+              },
+              {
+                key: "subhead_post_tcl",
+                value: "4",
+                type:"single_line_text_field",
+                namespace: "global"
+              },
+              {
+                key: "caption_hero_imagen_tcl",
+                value: "5",
+                type:"single_line_text_field",
+                namespace: "global"
+              },
+              {
+                key: "item_completo_tcl",
+                value: 0,
+                type:"boolean",
+                namespace: "global"
+              }
+            ]
           }
         }
       })
