@@ -17,6 +17,7 @@ export default async function articleCreator(settings, lastUpdate) {
             title: item.title,
             tags: item.tags ? item.tags : [],
             published: 0,
+            template_suffix:"tcl",
             body_html: item.content_html,
             image: item.image == undefined ? {src: ""} : {src: item.image},
             metafields: [
